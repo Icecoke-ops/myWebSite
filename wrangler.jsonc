@@ -1,5 +1,5 @@
 {
-  "name": "my-website",
+  "name": "website",
   "compatibility_date": "2026-01-28", // 👈 加上这一行就解决了
   "assets": {
     "directory": "./dist"
