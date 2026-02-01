@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "postbuild":"echo '/* /index.html 200' > dist/_redirects"
+    "postbuild":"echo '/* /index 200' > dist/_redirects"
   },
   "dependencies": {
     "@mdit/plugin-katex": "^0.24.2",
