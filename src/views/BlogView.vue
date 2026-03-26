@@ -8,20 +8,17 @@
                 <MdView :content="articaleContent"></MdView>
             </div>
         </div>
-        <div class="footer">© 2026 冰可乐</div>
     </div>
 </template>
 <style scoped>
 .body {
-    padding: 5em 20%;
-
     .main {
         display: flex;
         gap: 2em;
         align-items: start;
 
         .catalog {
-            width: 15em;
+            width: 20em;
             flex-shrink: 0;
             border-radius: var(--radius);
             background-color: var(--bgcolor);
@@ -34,20 +31,6 @@
             border-radius: var(--radius);
             overflow-x: auto;
         }
-
-    }
-
-    .footer {
-        --height: 3em;
-        background-color: var(--bgcolor);
-        backdrop-filter: calc(--filter);
-        border-radius: var(--radius);
-        height: var(--height);
-        line-height: var(--height);
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 2em;
-        color: rgb(50, 50, 50);
     }
 }
 </style>

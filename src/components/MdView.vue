@@ -8,7 +8,7 @@ import MarkdownIt from 'markdown-it';
 import $ from "jquery"
 import hljs from 'highlight.js';
 import { katex } from "@mdit/plugin-katex";
-import 'highlight.js/styles/github-dark.min.css'
+import 'highlight.js/styles/github-dark.css'
 
 const props = defineProps(["content"])
 const md = MarkdownIt({
@@ -21,17 +21,39 @@ watch(() => props.content, (newVal) => {
     if (newVal !== null) {
         $(".md-body").html(md.render(props.content))
         hljs.highlightAll()
+        initCopyButtons()
     }
 })
+
+function initCopyButtons() {
+    $(".md-body pre").each(function () {
+        const $pre = $(this);
+        if ($pre.find('.copy-code').length) return;
+
+        const codeText = $pre.text();
+        const $copyBtn = $('<button class="copy-code">复制</button>');
+
+        $copyBtn.click(() => {
+            navigator.clipboard.writeText(codeText).then(() => {
+                $copyBtn.text("已复制");
+                setTimeout(() => $copyBtn.text("复制"), 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        });
+
+        $pre.prepend($copyBtn);
+    });
+}
 </script>
 
 <style>
 .md-body {
-    font-family: 'xwzz', sans-serif;
+    font-family: 'xwzz', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.8;
     color: #2c3e50;
     margin: 0 auto;
-    padding: 1em;
+    padding: 2em;
 
     /* 标题样式 */
     h1,
@@ -55,9 +77,15 @@ watch(() => props.content, (newVal) => {
 
     h2 {
         font-size: 1.8em;
-        border-left: 6px solid #007AFF;
-        padding-left: 16px;
-        background: linear-gradient(to right, #f0f7ff, transparent);
+        border-left: 4px solid #4a90e2;
+        padding-left: 12px;
+        background-color: transparent;
+        transition: all 0.2s ease;
+    }
+
+    h2:hover {
+        background-color: #f0f7ff;
+        border-left: 4px solid #0056b3;
     }
 
     h3 {
@@ -100,14 +128,19 @@ watch(() => props.content, (newVal) => {
     }
 
     blockquote {
-        position: relative;
-        margin: 0;
-        padding: 0.5em;
-        background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
-        border-left: 3px solid #007AFF;
-        border-radius: 0 12px 12px 0;
+        margin: 1.5em 0;
+        padding: 0.1px 0.5em;
+        /* padding: 0.5em 0.6em; */
+        background-color: #f8fbff;
+        border-left: 4px solid #4a90e2;
+        border-radius: 0 6px 6px 0;
         color: #4a5568;
-        box-shadow: 0 4px 12px rgba(0, 86, 179, 0.05);
+        transition: all 0.2s ease;
+    }
+
+    blockquote:hover {
+        background-color: #edf6ff;
+        border-left: 4px solid #0056b3;
     }
 
     img {
@@ -158,22 +191,53 @@ watch(() => props.content, (newVal) => {
         }
     }
 
-
+    pre {
+        color: #edf6ff;
+        position: relative;
+        padding: 0.4em;
+        border-radius: 8px;
+        overflow-x: auto;
+        line-height: 1.6;
+        background-color: #0d1117;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
 
     code {
-        padding: 0 0.3em;
-        border-radius: 12px;
+        border-radius: 8px;
         font-family: 'jbm';
         font-size: 0.8em;
     }
 
-    pre {
-        background-color: #f9fbfc;
-        border: 1px solid #eef2f7;
-        padding: 1em;
-        border-radius: 12px;
-        overflow-x: auto;
-        line-height: 1.5;
+    .copy-code {
+        position: absolute;
+        top: 0.7em;
+        right: 0.7em;
+        background: rgba(226, 232, 240, 0.75);
+        color: #4a5568;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        backdrop-filter: blur(4px);
+        padding: 0.15em 0.4em;
+        border-radius: 4px;
+        font-size: 0.65em;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        transition: all 0.2s ease;
+        opacity: 0;
+        transform: translateX(4px);
+        z-index: 10;
+    }
+
+    pre:hover .copy-code {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .copy-code:hover {
+        background: #4a90e2;
+        color: white;
+        box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+        transform: translateY(-1px);
     }
 
     table {

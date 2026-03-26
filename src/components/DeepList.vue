@@ -10,15 +10,15 @@
 ol {
     list-style: none;
     margin: 0;
-    padding: 1em 0.5em;
+    padding: 1em 1em;
     font-family: 'xwzz';
-    font-size: small;
+    font-size: 0.9em;
 }
 
 li {
     --height: 2em;
     line-height: var(--height);
-    margin-top: 0.5em;
+    margin-top: 0.8em;
     padding: 0 0.5em;
     box-shadow: rgb(120, 120, 120) 0 0 2px;
     border-radius: calc(var(--radius)/2);
