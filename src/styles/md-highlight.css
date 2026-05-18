@@ -1,0 +1,81 @@
+/* 与站点主题一致的代码高亮 */
+.md-body .hljs {
+  color: var(--code-text);
+  background: transparent;
+}
+
+.md-body .hljs-comment,
+.md-body .hljs-quote {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+
+.md-body .hljs-keyword,
+.md-body .hljs-selector-tag,
+.md-body .hljs-built_in,
+.md-body .hljs-name {
+  color: var(--hl-keyword);
+}
+
+.md-body .hljs-string,
+.md-body .hljs-regexp,
+.md-body .hljs-addition,
+.md-body .hljs-attribute {
+  color: var(--hl-string);
+}
+
+.md-body .hljs-number,
+.md-body .hljs-literal,
+.md-body .hljs-symbol,
+.md-body .hljs-bullet {
+  color: var(--hl-number);
+}
+
+.md-body .hljs-title,
+.md-body .hljs-section,
+.md-body .hljs-type,
+.md-body .hljs-class .hljs-title,
+.md-body .hljs-function .hljs-title {
+  color: var(--hl-title);
+}
+
+.md-body .hljs-variable,
+.md-body .hljs-template-variable,
+.md-body .hljs-link,
+.md-body .hljs-params {
+  color: #d4eee0;
+}
+
+.md-body .hljs-meta,
+.md-body .hljs-meta .hljs-keyword {
+  color: #9ab8a8;
+}
+
+.md-body .hljs-selector-id,
+.md-body .hljs-selector-class,
+.md-body .hljs-tag,
+.md-body .hljs-subst {
+  color: #b8e8cc;
+}
+
+.md-body .hljs-operator,
+.md-body .hljs-punctuation {
+  color: #a0c8b4;
+}
+
+.md-body .hljs-property {
+  color: #90e8b8;
+}
+
+.md-body .hljs-deletion {
+  color: #f0b8b8;
+}
+
+.md-body .hljs-emphasis {
+  font-style: italic;
+}
+
+.md-body .hljs-strong {
+  font-weight: 600;
+  color: #f0faf4;
+}

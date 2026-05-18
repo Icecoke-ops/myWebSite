@@ -7,9 +7,20 @@ const routes = [
     component: () => import('@/views/HomeView.vue')
   },
   {
-    path: '/blog/:slug(.*)*',
-    name: 'blog',
-    component: () => import('@/views/BlogView.vue')
+    path: '/blog',
+    component: () => import('@/views/BlogLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'blog',
+        component: () => import('@/views/BlogArticleView.vue')
+      },
+      {
+        path: ':slug(.*)*',
+        name: 'blog-article',
+        component: () => import('@/views/BlogArticleView.vue')
+      }
+    ]
   }
 ]
 

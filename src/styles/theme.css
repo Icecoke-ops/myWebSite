@@ -1,0 +1,75 @@
+/* 站点主题变量 — 日后可通过切换 data-theme 或覆盖 :root 实现主题切换 */
+:root {
+  --color-accent: #52c98a;
+  --color-accent-deep: #2fb878;
+  --color-accent-hover: #28a86c;
+  --color-accent-muted: rgba(82, 201, 138, 0.15);
+  --color-accent-border: rgba(82, 201, 138, 0.3);
+  --color-accent-glow: rgba(82, 201, 138, 0.5);
+
+  --color-text: #3d4844;
+  --color-text-secondary: #6e7f76;
+  --color-text-body: #3f4d48;
+  --color-text-soft: #5f7268;
+  --color-text-muted: #95a89e;
+  --color-text-tree: #4f6258;
+  --color-text-tree-hover: #3a4d44;
+  --color-text-tree-active: #28a068;
+
+  --glass-bg: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(248, 252, 249, 0.9) 100%
+  );
+  --glass-blur: blur(18px) saturate(1.12);
+  --glass-border: rgba(82, 201, 138, 0.22);
+  --glass-border-subtle: rgba(82, 201, 138, 0.12);
+  --glass-shadow:
+    0 4px 6px rgba(60, 120, 90, 0.05),
+    0 12px 36px rgba(60, 120, 90, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --glass-shadow-soft:
+    0 2px 8px rgba(60, 120, 90, 0.06),
+    0 8px 24px rgba(60, 120, 90, 0.06);
+
+  --shadow-accent-sm: 0 6px 20px rgba(60, 140, 100, 0.1);
+  --shadow-accent-md: 0 12px 32px rgba(60, 140, 100, 0.14);
+  --shadow-accent-lg: 0 16px 40px rgba(60, 140, 100, 0.18);
+
+  --radius: 1em;
+  --radius-sm: calc(var(--radius) / 2);
+  --layout-width: 60%;
+
+  --scrollbar-thumb: rgba(82, 201, 138, 0.5);
+
+  /* Markdown 内容区 */
+  --md-accent: var(--color-accent);
+  --md-accent-deep: var(--color-accent-deep);
+  --md-accent-muted: var(--color-accent-muted);
+  --md-text: var(--color-text-body);
+  --md-text-soft: var(--color-text-soft);
+  --md-text-muted: var(--color-text-muted);
+  --md-border: var(--color-accent-border);
+  --md-surface: rgba(255, 255, 255, 0.88);
+  --md-radius: 12px;
+  --md-radius-sm: 8px;
+
+  --code-bg: #2e4038;
+  --code-text: #e2f2e8;
+  --code-header-bg: rgba(82, 201, 138, 0.14);
+  --code-border: rgba(82, 201, 138, 0.28);
+
+  --table-bg: rgba(255, 255, 255, 0.96);
+  --table-header-bg: var(--color-accent-muted);
+  --table-line: var(--color-accent-border);
+  --table-line-soft: rgba(82, 201, 138, 0.1);
+  --table-header-text: #2d8a5c;
+  --table-row-alt: rgba(82, 201, 138, 0.05);
+  --table-row-hover: rgba(82, 201, 138, 0.1);
+
+  --hl-keyword: #9af0c4;
+  --hl-string: #d4f0a8;
+  --hl-number: #ffd89a;
+  --hl-title: #b8f0d4;
+  --hl-comment: #8ab89e;
+}
